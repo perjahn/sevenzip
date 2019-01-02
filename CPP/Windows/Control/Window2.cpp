@@ -143,6 +143,10 @@ LRESULT CWindow2::OnMessage(UINT message, WPARAM wParam, LPARAM lParam)
       if (OnCommand(wParam, lParam, result))
         return result;
       break;
+    case WM_APPCOMMAND:
+      if (OnAppCommand(wParam, lParam, result))
+        return result;
+      break;
     case WM_NOTIFY:
       if (OnNotify((UINT)wParam, (LPNMHDR) lParam, result))
         return result;
@@ -173,6 +177,11 @@ bool CWindow2::OnCommand(int /* code */, int /* itemID */, LPARAM /* lParam */, 
   if (code == BN_CLICKED)
     return OnButtonClicked(itemID, (HWND)lParam);
   */
+}
+
+bool CWindow2::OnAppCommand(WPARAM, LPARAM, LRESULT &)
+{
+  return false;
 }
 
 /*

@@ -697,6 +697,17 @@ bool CPanel::OnCommand(int code, int itemID, LPARAM lParam, LRESULT &result)
   return CWindow2::OnCommand(code, itemID, lParam, result);
 }
 
+bool CPanel::OnAppCommand(WPARAM wParam, LPARAM lParam, LRESULT &result)
+{
+  LPARAM cmd = GET_APPCOMMAND_LPARAM(lParam);
+  if (cmd == APPCOMMAND_BROWSER_BACKWARD)
+  {
+    OpenParentFolder();
+    result = 0;
+    return true;
+  }
+  return CWindow2::OnAppCommand(wParam, lParam, result);
+}
 
 
 /*

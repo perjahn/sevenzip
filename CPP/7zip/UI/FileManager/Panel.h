@@ -273,6 +273,7 @@ class CPanel: public NWindows::NControl::CWindow2
   CAppState *_appState;
 
   bool OnCommand(int code, int itemID, LPARAM lParam, LRESULT &result);
+  bool OnAppCommand(WPARAM wParam, LPARAM lParam, LRESULT &result);
   LRESULT OnMessage(UINT message, WPARAM wParam, LPARAM lParam);
   virtual bool OnCreate(CREATESTRUCT *createStruct);
   virtual bool OnSize(WPARAM wParam, int xSize, int ySize);
